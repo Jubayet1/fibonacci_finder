@@ -9,8 +9,8 @@ html {
 }
 
 body {
-  background-color: #000;
-  color: #fff;
+  color: #000;
+  background-color: rgb(116, 200, 213);
   min-height: 100vh;
   font-family: 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -25,6 +25,8 @@ body {
   justify-content: flex-start;
   align-items: center;
   padding: 1rem;
+  margin-top: 100px;
+  font-family: 'Dancing Script', cursive;
 }
 
 h1 {

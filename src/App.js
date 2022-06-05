@@ -25,8 +25,9 @@ function App() {
   return (
     <main className="App">
       <label>Fibonacci Sequence:</label>
+      <br />
       <input type="number" value={userNumber} placeholder="Position" onChange={(e) => setUserNumber(e.target.value)} />
-      <p>Number: {fibNumber || "--"}</p>
+      <p>Number : {fibNumber || ""}</p>
     </main>
   );
 }
