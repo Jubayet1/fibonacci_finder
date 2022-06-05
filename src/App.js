@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+
+const getArray = () => {
+  for (let i = 0; i < 1000000000; i++) {
+    //do something expensive
+  }
+  return ['Dave', 'Gray'];
+}
 
 function App() {
+  const [userNumber, setUserNumber] = useState('');
+
+  const fib = useCallback((n) => {
+    return (n <= 1) ? n : fib(n - 1) + fib(n - 2);
+  }, [])
+
+  const fibNumber = useMemo(() => fib(userNumber), [userNumber, fib]);
+
+  const myArray = useMemo(() => getArray(), []);
+
+  useEffect(() => {
+    console.log('New array')
+  }, [myArray])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="App">
+      <label>Fibonacci Sequence:</label>
+      <input type="number" value={userNumber} placeholder="Position" onChange={(e) => setUserNumber(e.target.value)} />
+      <p>Number: {fibNumber || "--"}</p>
+    </main>
   );
 }
 
 export default App;
+
+
+
